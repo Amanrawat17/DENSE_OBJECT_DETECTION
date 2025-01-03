@@ -1,16 +1,7 @@
 # Dense Object Detection
 Object Detection in Dense Environments using Yolov5 by Ultralytics on SKU110K dataset and Post Quantization.
 
-## Table of Contents
-- [Training and Evaluation](#training-and-evaluation)
-- [Quantization and its benefits](#quantization-and-its-benefits)
-- [Results](#results)
-- [Inference](#inference)
-- [Weights](#weights)
-- [Advantages of using SKU110K dataset on Yolov5 model](#advantages-of-using-sku110k-dataset-on-yolov5-model)
-- [Limitations of using SKU110K dataset on Yolov5 model](#limitations-of-using-sku110k-dataset-on-yolov5-model)
-- [Real World Implementations](#real-world-implementations)
-- [To Do](#to-do)
+
 
 ### The Yolov5 model by Ultralytics is an efficient object detection model that can be quantized and deployed on edge devices for real-time detection in dense environments.
 Some of the key features of Yolov5 are:
@@ -39,15 +30,6 @@ The image size was set to 640x640 and the batch size was set to 2 due to the dat
 The training was done on 2 x 3060 Ti Nvidia GPUs each consisting of 8gb vram for approximately 3 hours.
 
 
-## Quantization and its benefits
-Quantization is a technique to reduce the size of the model by reducing the precision of the weights and activations.
-Quantization involves converting the weights of the model from 32-bit floating-point precision to lower-precision formats, such as 8-bit integers, while minimizing the loss of accuracy.
-
-Some benefits of quantizing yolov5 model are:-
-- Reduced Memory Requirements: Quantizing YOLOv5 can significantly reduce the memory requirements of the model, making it more suitable for deployment on mobile devices with limited memory resources. This can also help to reduce the power consumption and increase the battery life of the device.
-- Improved Computational Efficiency: Quantized YOLOv5 models can be executed more efficiently on mobile devices, due to the reduced precision of the weights. This can lead to faster inference times and lower latency, which is particularly important for real-time applications such as object detection in mobile cameras.
-- Reduced Model Size: Quantization can also help to reduce the size of the YOLOv5 model, making it easier to deploy and distribute to mobile devices. This can also help to reduce the network bandwidth requirements and storage costs associated with the deployment of the model.
-- Compatibility with Mobile Hardware: Quantized YOLOv5 models can be optimized for mobile hardware architectures. This can further improve the performance and efficiency of the model on mobile devices.
 
 ## Results
 - I was able to achieve exceptional results with the Yolov5 model on the SKU110K dataset
@@ -69,37 +51,15 @@ Some benefits of quantizing yolov5 model are:-
 - As we can see the models in the middle perform very similar to one another.
 - Here are some inference results for various models.
 
-
-
 Theoritically the model should have been quantized to INT8 precision with minimal loss in accuracy and we could see that the model was quantized to INT8 precision with a loss in accuracy of 0.007 which is very minimal and works in our favor.
 
 But, when these models were inferenced and compared to one another the int 8 model performs the best in terms of accuracy.
 Amazing right? :)
 
-
-
-## Advantages of using SKU110K dataset on Yolov5 model
-- Large and Diverse: The dataset contains a large and diverse set of product images, covering a wide range of categories, brands, and styles. This diversity can help the YOLOv5 model learn to recognize a variety of products and adapt to different retail store settings.
-- Realistic Scenarios: The images in the dataset are captured in real-world retail store settings, with varying illumination, background clutter, and occlusion. This can help the YOLOv5 model learn to recognize products in realistic scenarios, which can be particularly useful in retail store settings.
-- Annotation Quality: The dataset includes high-quality annotations for each product image, including bounding box coordinates and class labels. This can help the YOLOv5 model learn to accurately detect and classify products, which is critical for many retail store applications.
-- Faster Inference: YOLOv5 is known for its speed and efficiency, making it a good choice for real-time object detection applications in retail stores. The model can quickly process large volumes of product images and provide accurate object detection results.
-
-## Limitations of using SKU110K dataset on Yolov5 model
-- Limited Domain: While the dataset contains a large and diverse set of product images, it is still limited to the retail domain. This means that the YOLOv5 model trained on this dataset may not perform well on other object detection tasks outside of retail stores.
-- Limited Annotations: While the dataset includes high-quality annotations for each product image, the annotations are limited to bounding box coordinates and class labels. This means that the YOLOv5 model trained on this dataset may not be able to recognize finer details of the products, such as specific features or attributes.
-- Limited Generalizability: While the dataset contains a diverse set of product images, the images are still limited to specific retail store settings and conditions. This means that the YOLOv5 model trained on this dataset may not generalize well to other retail store settings or to different types of product images.
-
-## Real World Implementations
+## Future (Real World Implementations)
 - Inventory Management: Retail stores can use object detection models to automatically track and manage inventory levels for different products. By analyzing product images captured in real-time, the YOLOv5 model can detect and count the number of products on shelves or in storage, and alert store managers when inventory levels are running low.
 - Loss Prevention: Object detection models can also be used to identify and prevent theft or fraud in retail stores. By analyzing surveillance camera footage or product images, the YOLOv5 model can detect and track suspicious behavior, such as shoplifting or product tampering, and alert store security personnel.
 - Customer Behavior Analysis: Retail stores can use object detection models to analyze customer behavior and preferences. By analyzing product images and tracking customer movements, the YOLOv5 model can identify popular product categories and display placements, and provide insights into customer shopping behavior.
 - Product Recommendation: Object detection models can also be used to provide personalized product recommendations to customers. By analyzing customer images or product images captured in real-time, the YOLOv5 model can identify the products that a customer is interested in and recommend complementary or similar products.
 
 
-
-
-
-## To Do
-- Expanding the dataset to include more categories and brands.
-- Convert the weights to ONNX format and deploy using ONNX Runtime.
-- Converting weights to 'ggml' which is a tensor library written in C and supports even smaller 4-bit integer quantization and optimized for various platforms.
