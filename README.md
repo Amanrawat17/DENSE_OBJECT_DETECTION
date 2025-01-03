@@ -38,11 +38,6 @@ Yolov5x which is the largest version of the model was used for training and eval
 The image size was set to 640x640 and the batch size was set to 2 due to the data being large and avoiding GPUs running out of memory.
 The training was done on 2 x 3060 Ti Nvidia GPUs each consisting of 8gb vram for approximately 3 hours.
 
-### Graphs for training and validation for various metrics.
-<img src="assets/results.png" width="750" />
-
-### Confusion Matrix for the validation set.
-<img src="assets/confusion_matrix.png" width="750" />
 
 ## Quantization and its benefits
 Quantization is a technique to reduce the size of the model by reducing the precision of the weights and activations.
@@ -74,25 +69,14 @@ Some benefits of quantizing yolov5 model are:-
 - As we can see the models in the middle perform very similar to one another.
 - Here are some inference results for various models.
 
-### Pytorch FP16 | Tflite FP32
-<p float="left">
-  <img src="assets/pt_img.png" width="412" />
-  <img src="assets/tflite_fp32.png" width="412" /> 
-</p>
 
-### Tflite FP16 | Tflite INT8
-<p float="left">
-  <img src="assets/tflite_fp16.png" width="412" />
-  <img src="assets/tflite_int8.png" width="412" />
-</p>
 
 Theoritically the model should have been quantized to INT8 precision with minimal loss in accuracy and we could see that the model was quantized to INT8 precision with a loss in accuracy of 0.007 which is very minimal and works in our favor.
 
 But, when these models were inferenced and compared to one another the int 8 model performs the best in terms of accuracy.
 Amazing right? :)
 
-## Weights
-The weights for the model are removed from the repository due to their large size but can be downloaded from [here](https://drive.google.com/file/d/1BRlXZD9MqYAYYnciMRQ50Mht9kBncf0l/view?usp=sharing).
+
 
 ## Advantages of using SKU110K dataset on Yolov5 model
 - Large and Diverse: The dataset contains a large and diverse set of product images, covering a wide range of categories, brands, and styles. This diversity can help the YOLOv5 model learn to recognize a variety of products and adapt to different retail store settings.
@@ -111,10 +95,7 @@ The weights for the model are removed from the repository due to their large siz
 - Customer Behavior Analysis: Retail stores can use object detection models to analyze customer behavior and preferences. By analyzing product images and tracking customer movements, the YOLOv5 model can identify popular product categories and display placements, and provide insights into customer shopping behavior.
 - Product Recommendation: Object detection models can also be used to provide personalized product recommendations to customers. By analyzing customer images or product images captured in real-time, the YOLOv5 model can identify the products that a customer is interested in and recommend complementary or similar products.
 
-Here is a video sample in a random supermart.
 
-
-https://user-images.githubusercontent.com/75354950/232226307-fc1ce766-617c-454d-b01a-c49fca83d7bc.mp4
 
 
 
